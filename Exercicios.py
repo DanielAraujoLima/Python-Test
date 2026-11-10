@@ -1137,3 +1137,39 @@ print()
 print(*produtos_ordenados_por_nome, sep='\n')
 print()
 print(*produtos_ordenados_por_preco, sep='\n')
+
+
+
+
+
+
+
+
+
+
+
+
+# EXERCÍCIO 17:
+# Exercício - Adiando execução de funções
+# RESPOSTA:
+
+def soma(x, y):
+    return x + y
+
+
+def multiplica(x, y):
+    return x * y
+
+
+def criar_funcao(funcao, *args):
+    def funcao_interna(*args_internos):
+        return funcao(*args, *args_internos)
+    return funcao_interna
+
+
+soma_da_funcao = criar_funcao(soma, 10)
+multi_da_funcao = criar_funcao(multiplica, 50)
+
+
+print(soma_da_funcao(10))
+print(multi_da_funcao(20))
