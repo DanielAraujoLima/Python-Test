@@ -1173,3 +1173,94 @@ multi_da_funcao = criar_funcao(multiplica, 50)
 
 print(soma_da_funcao(10))
 print(multi_da_funcao(20))
+
+
+
+
+
+# EXERCÍCIO 18:
+# Exercício - Unir listas
+# Crie uma função zipper (como o zipper de roupas)
+# O trabalho dessa função será unir duas
+# listas na ordem.
+# Use todos os valores da menor lista.
+# Ex.:
+# ['Salvador', 'Ubatuba', 'Belo Horizonte']
+# ['BA', 'SP', 'MG', 'RJ']
+# Resultado
+# [('Salvador', 'BA'), ('Ubatuba', 'SP'), ('Belo Horizonte', 'MG')]
+# RESULTADO:
+
+city = ['Salvador', 'Ubatuba', 'Belo Horizonte']
+state = ['BA', 'SP', 'MG', 'RJ']
+
+city_state_together = zip(city, state)
+
+print(list(city_state_together))
+
+
+# OUTRA FORMA DE RESOLVER
+def zipper(city, state):
+    city_state_together = zip(city, state)
+    print(list(city_state_together))
+
+zipper(city, state)
+
+
+
+
+# OUTRA FORMA
+def zipper(city, state):
+    intervalo = min(len(l1), len(l2))
+    return [(city[i], state[i]) for i in range(intervalo)]
+
+# OUTRA FORMA
+from itertools import zip_longest
+
+print(list(zip(city, state)))
+print(list(zip_longest(city, state, fillvalue='SEM CIDADE')))
+
+# ZIP LONGEST FAZ COM Q USE A LISTA MAIOR OU SEJA VAI APARECER ATE O RJ NA LISTA MAS COMO N TEM NENHUM VALOR DO OUTRO LADO E DETERMINADO COMO NONE, OU VC PODE DA UM VALOR USANDO FILLVALUE
+
+
+
+
+
+
+# EXERCÍCIO 19:
+"""
+Considerando duas listas de inteiros ou floats (lista A e lista B)
+Some os valores nas listas retornando uma nova lista com os valores somados:
+Se uma lista for maior que a outra, a soma só vai considerar o tamanho da
+menor.
+Exemplo:
+lista_a     = [1, 2, 3, 4, 5, 6, 7]
+lista_b     = [1, 2, 3, 4]
+=================== resultado
+lista_soma  = [2, 4, 6, 8]
+"""
+# RESPOSTA
+
+
+lista_a     = [1, 2, 3, 4, 5, 6, 7]
+lista_b     = [1, 2, 3, 4]
+
+
+lista_soma = [a + b for a, b in zip(lista_a, lista_b)]
+print(lista_soma)
+
+
+# COMO O PYTHON SO PEGA A MENOR LISTA, PRA PEGAR A MAIOR IMPORTAMOS O ZIP LONGEST
+from itertools import zip_longest
+ 
+lista_a = [10, 2, 3, 4, 5]
+lista_b = [12, 2, 3, 6, 50, 60, 70]
+
+lista_soma_longa = [x + y for x, y in zip_longest(lista_a, lista_b, fillvalue = 0)]
+print(lista_soma_longa)
+
+
+
+
+
+
